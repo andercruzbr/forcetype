@@ -57,33 +57,3 @@ def forcetype(method):
 		return method(*args, **kwargs)
 
 	return inner
-
-
-@forcetype
-def add(op1: int, op2: int) -> int:
-	"""
-	Add
-	:param op1:
-	:param op2:
-	:return:
-	"""
-	return op1 + op2
-
-
-def subtract(op1, op2):
-	"""
-
-	:param op1:
-	:param op2:
-	:return:
-	"""
-	return op1 - op2
-
-if __name__ == '__main__':
-
-	print("Starting ...")
-
-	print(">>>>", add(1, 2))
-	# print(">>>>", subtract(1, '2'))
-
-	print("Finish.")
