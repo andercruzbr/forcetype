@@ -38,7 +38,7 @@ class TestBasic(TestCase):
 
 	def test_02(self):
 
-		self.assertEquals(add(1, '1'), 2)
+		self.assertEquals(add(1, 1), 2)
 
 	def test_03(self):
 		self.assertEquals(subtract(1, 1), 0)
