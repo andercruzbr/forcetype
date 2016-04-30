@@ -4,7 +4,7 @@ This project born from some of my needs in validate types of functions/methods p
 
 In this project I aim another way to do that using decorators and function annotations, as can seen below.
 
-```
+```python
 @forcetype
 def add(op1: int, op2: int) -> int:
 	"""
