@@ -1,6 +1,6 @@
 from unittest.case import TestCase
 
-from forcetype import forcetype
+from forcetype import forcetype, WrongParameterTypeException, TypesNotDefinedException, WrongReturnTypeException
 
 
 @forcetype
@@ -13,8 +13,9 @@ def add(op1: int, op2: int) -> int:
 	"""
 	return op1 + op2
 
+
 @forcetype
-def subtract(op1, op2):
+def subtract(op1: int, op2: int) -> int:
 	"""
 
 	:param op1:
@@ -22,6 +23,17 @@ def subtract(op1, op2):
 	:return:
 	"""
 	return op1 - op2
+
+
+@forcetype
+def multiple(op1: int, op2: int) -> int:
+	"""
+
+	:param op1:
+	:param op2:
+	:return:
+	"""
+	return float(op1 * op2)
 
 
 class TestBasic(TestCase):
@@ -38,7 +50,20 @@ class TestBasic(TestCase):
 
 	def test_02(self):
 
-		self.assertEquals(add(1, 1), 2)
+		self.assertEquals(subtract(3, 1), 2)
 
-	def test_03(self):
-		self.assertEquals(subtract(1, 1), 0)
+	def test_exceptions(self):
+
+		self.assertRaises(WrongParameterTypeException, lambda: subtract(1, '1'))
+
+		self.assertRaises(WrongParameterTypeException, lambda: subtract(1, '1'))
+
+		self.assertRaises(WrongParameterTypeException, lambda: subtract(1.0, 1))
+
+		self.assertRaises(WrongReturnTypeException, lambda: multiple(2, 4))
+
+
+
+
+
+
